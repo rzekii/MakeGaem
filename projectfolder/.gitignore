@@ -21,7 +21,7 @@
 /[Aa]ssets/Plugins/Editor/JetBrains*
 
 #Large text file
-/[As]ssets/Unsorted Imports/TextMesh Pro/MuugText.asset
+Assets/Unsorted Imports/TextMesh Pro/MuugText.asset
 
 # Visual Studio cache directory
 .vs/
