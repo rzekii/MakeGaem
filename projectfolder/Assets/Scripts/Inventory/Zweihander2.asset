@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f11c072d4d1ee14791ca0f61749f76b, type: 3}
+  m_Name: Zweihander2
+  m_EditorClassIdentifier: 
+  gearName: Better sword
+  gearType: 3
+  gearIcon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+  baseDamage: 9
+  constitutionBonus: 2
+  strengthBonus: 2
+  agilityBonus: 1
+  intelligenceBonus: 0
+  armorBonus: 0
+  rarity: 0
+  gearPrefab: {fileID: 5570771522501449613, guid: c216abf421909624cb1b474d203ce445, type: 3}

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a74b3884f58cb3b46a680f81251efa21
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - weaponIcon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+  - headIcon: {fileID: 21300000, guid: fd6e4fc32c78509458fc45ea4a478ba8, type: 3}
+  - chestIcon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
+  - bootsIcon: {fileID: 21300000, guid: e420c5bc93cb2604695a893500c897e3, type: 3}
+  - potionIcon: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
+  - questItemIcon: {fileID: 21300000, guid: db427fab3e94daf4caa704d9314a77a1, type: 3}
+  - defaultIcon: {instanceID: 0}
+  executionOrder: 5
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
