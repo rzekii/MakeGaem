@@ -132,7 +132,13 @@ public class PlayerInventory : MonoBehaviour
             UpdateInventoryUI();
             playerStatsUI?.UpdateStatsUI();
         }
+        else
+        {
+            // ✅ Ensure tooltip disappears when closing inventory
+            Tooltip.Instance?.HideTooltip();
+        }
     }
+
 
     public void AddGear(Gear newGear)
     {
