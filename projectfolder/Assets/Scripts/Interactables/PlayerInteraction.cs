@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactionPrompt;
 
     private IInteractable closestInteractable;
+    private bool isDialogueActive = false; // Track if a dialogue is currently active
 
     private void Start()
     {
@@ -55,7 +56,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void UpdateInteractionPrompt()
     {
-        if (closestInteractable != null && CanInteractWith(closestInteractable))
+        if (closestInteractable != null && CanInteractWith(closestInteractable) && !isDialogueActive)
         {
             interactionPrompt.gameObject.SetActive(true);
             interactionPrompt.text = "[E] " + closestInteractable.GetInteractionName();
@@ -81,9 +82,15 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && closestInteractable != null)
+        if (Input.GetKeyDown(KeyCode.E) && closestInteractable != null && !isDialogueActive)
         {
             closestInteractable.Interact();
         }
+    }
+
+    // Called by DialogueTrigger to set the dialogue state
+    public void SetDialogueActive(bool active)
+    {
+        isDialogueActive = active;
     }
 }
