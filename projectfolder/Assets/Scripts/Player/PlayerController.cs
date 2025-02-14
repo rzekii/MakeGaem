@@ -235,9 +235,21 @@ public class PlayerController : MonoBehaviour
 
     // 🎯 **Smooth Camera Follow**
     private void UpdateCameraPosition()
+
     {
         Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
         Vector3 desiredPosition = rotation * new Vector3(0, 0, -distanceFromPlayer) + transform.position + cameraOffset;
+
+        // Check for obstacles between the player and the desired camera position
+        Vector3 direction = (desiredPosition - (transform.position + cameraOffset)).normalized;
+        float distance = Vector3.Distance(transform.position + cameraOffset, desiredPosition);
+
+        if (Physics.SphereCast(transform.position + cameraOffset, 0.5f, direction, out RaycastHit hit, distance, cameraCollisionMask))
+        {
+            // Adjust the camera position to the hit point
+            desiredPosition = hit.point - direction * 0.5f; // Add a small offset to avoid clipping
+        }
+
         cameraTransform.position = Vector3.Lerp(cameraTransform.position, desiredPosition, smoothSpeed);
         cameraTransform.LookAt(transform.position + cameraOffset);
     }
