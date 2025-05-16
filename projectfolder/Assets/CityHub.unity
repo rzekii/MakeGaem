@@ -19310,6 +19310,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 5
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!136 &342866616
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -33157,6 +33159,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 5
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!1001 &553951590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38109,6 +38113,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 3
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!4 &638653321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6bb87a11c15512945baf00bb0e26e4bd, type: 3}
@@ -38958,6 +38964,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 10
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!136 &651097021
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -79049,6 +79057,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 5
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!1001 &1278424724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81138,6 +81148,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 4
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!1001 &1303802603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84721,6 +84733,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 4
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!4 &1356775251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c19a47e6eafbb7048ac8348965b301e3, type: 3}
@@ -90947,6 +90961,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac97007c9d09db94db05b0a5bb306b6d, type: 3}
+--- !u!1 &1467287468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
+  m_PrefabInstance: {fileID: 1846404339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1467287473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467287468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f5d85376c2e39419fef6f432778678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloomVisuals: {fileID: 1467287468}
+  fadeDuration: 1
+  dialogueTrigger: {fileID: 0}
 --- !u!4 &1467599309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6bb87a11c15512945baf00bb0e26e4bd, type: 3}
@@ -93424,7 +93458,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.6
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -93444,6 +93478,23 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 5
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
+--- !u!114 &1507407397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507407392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f5d85376c2e39419fef6f432778678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 2
+  dialogueTrigger: {fileID: 0}
 --- !u!4 &1510185153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6bb87a11c15512945baf00bb0e26e4bd, type: 3}
@@ -107148,6 +107199,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 5
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!4 &1704205043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6bb87a11c15512945baf00bb0e26e4bd, type: 3}
@@ -111557,6 +111610,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 4
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!4 &1763155407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6bb87a11c15512945baf00bb0e26e4bd, type: 3}
@@ -116784,6 +116839,8 @@ MonoBehaviour:
   dialoguePopup: {fileID: 1168639230}
   pressEPrompt: {fileID: 167128918}
   displayDuration: 4
+  bloomVisuals: {fileID: 0}
+  fadeDuration: 1
 --- !u!4 &1835327587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c19a47e6eafbb7048ac8348965b301e3, type: 3}
@@ -117613,15 +117670,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.88
+      value: -19.882
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.241
+      value: -0.231
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.846
+      value: -0.847
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -117652,7 +117709,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 100002, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
@@ -117661,6 +117719,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1507407395}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1507407397}
+    - targetCorrespondingSourceObject: {fileID: 100004, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1467287473}
   m_SourcePrefab: {fileID: 100100000, guid: 2d37c94e75e432645aade82bf6ea565f, type: 3}
 --- !u!1001 &1846643539
 PrefabInstance:

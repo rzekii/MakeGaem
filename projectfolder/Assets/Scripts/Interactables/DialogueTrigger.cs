@@ -1,21 +1,38 @@
 using UnityEngine;
 using TMPro;
+using System.Collections; // Add this line for IEnumerator
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] private string dialogueText; // The text to display in the dialogue popup
-    [SerializeField] private TextMeshProUGUI dialoguePopup; // Reference to the UI text element for the dialogue
-    [SerializeField] private TextMeshProUGUI pressEPrompt; // Reference to the "Press E" prompt UI element
-    [SerializeField] private float displayDuration = 3f; // How long the dialogue should be displayed
+    [Header("Dialogue Settings")]
+    [SerializeField] private string dialogueText;
+    [SerializeField] private TextMeshProUGUI dialoguePopup;
+    [SerializeField] private TextMeshProUGUI pressEPrompt;
+    [SerializeField] private float displayDuration = 3f;
 
-    private bool isPlayerInTrigger = false; // Track if the player is in the trigger area
+    [Header("Bloom Settings")]
+    [SerializeField] private GameObject bloomVisuals;
+    [SerializeField] private float fadeDuration = 1f;
+
+    private bool isPlayerInTrigger = false;
+    private bool hasInteracted = false;
+    private ParticleSystem bloomParticles;
+
+    private void Start()
+    {
+        if (bloomVisuals != null)
+        {
+            bloomParticles = bloomVisuals.GetComponent<ParticleSystem>();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Ensure the player has the "Player" tag
+        if (other.CompareTag("Player") && !hasInteracted)
         {
-            isPlayerInTrigger = true; // Player is in the trigger area
-            ShowPressEPrompt(); // Show the "Press E" prompt
+            isPlayerInTrigger = true;
+            ShowPressEPrompt();
         }
     }
 
@@ -23,67 +40,74 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInTrigger = false; // Player has left the trigger area
-            HidePressEPrompt(); // Hide the "Press E" prompt
-            HideDialogue(); // Hide the dialogue if the player leaves the trigger
+            isPlayerInTrigger = false;
+            HidePressEPrompt();
+            HideDialogue();
         }
     }
 
     private void Update()
     {
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E)) // Check if player is in trigger and presses E
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && !hasInteracted)
         {
-            HidePressEPrompt(); // Hide the "Press E" prompt
-            ShowDialogue(); // Show the dialogue popup
+            hasInteracted = true;
+            HidePressEPrompt();
+            ShowDialogue();
+            StartCoroutine(FadeOutBloom());
         }
+    }
+
+    private IEnumerator FadeOutBloom()
+    {
+        if (bloomVisuals == null) yield break;
+
+        float timer = 0f;
+
+        if (fadeDuration > 0 && bloomParticles != null)
+        {
+            var mainModule = bloomParticles.main;
+            Color initialColor = mainModule.startColor.color;
+
+            while (timer < fadeDuration)
+            {
+                timer += Time.deltaTime;
+                float alpha = Mathf.Lerp(1, 0, timer / fadeDuration);
+                mainModule.startColor = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+                yield return null;
+            }
+        }
+
+        bloomVisuals.SetActive(false);
     }
 
     private void ShowPressEPrompt()
     {
-        if (pressEPrompt != null)
-        {
-            pressEPrompt.text = "Press E to Interact"; // Set the "Press E" text
-            pressEPrompt.gameObject.SetActive(true); // Show the "Press E" prompt
-        }
+        pressEPrompt?.gameObject.SetActive(true);
     }
 
     private void HidePressEPrompt()
     {
-        if (pressEPrompt != null)
-        {
-            pressEPrompt.gameObject.SetActive(false); // Hide the "Press E" prompt
-        }
+        pressEPrompt?.gameObject.SetActive(false);
     }
 
     private void ShowDialogue()
     {
         if (dialoguePopup != null)
         {
-            dialoguePopup.text = dialogueText; // Set the dialogue text
-            dialoguePopup.gameObject.SetActive(true); // Show the dialogue popup
-            Invoke("HideDialogue", displayDuration); // Hide the popup after the specified duration
+            dialoguePopup.text = dialogueText;
+            dialoguePopup.gameObject.SetActive(true);
+            Invoke(nameof(HideDialogue), displayDuration);
 
-            // Notify the PlayerInteraction script that dialogue is active
             PlayerInteraction playerInteraction = FindObjectOfType<PlayerInteraction>();
-            if (playerInteraction != null)
-            {
-                playerInteraction.SetDialogueActive(true);
-            }
+            playerInteraction?.SetDialogueActive(true);
         }
     }
 
     private void HideDialogue()
     {
-        if (dialoguePopup != null)
-        {
-            dialoguePopup.gameObject.SetActive(false); // Hide the dialogue popup
+        dialoguePopup?.gameObject.SetActive(false);
 
-            // Notify the PlayerInteraction script that dialogue is inactive
-            PlayerInteraction playerInteraction = FindObjectOfType<PlayerInteraction>();
-            if (playerInteraction != null)
-            {
-                playerInteraction.SetDialogueActive(false);
-            }
-        }
+        PlayerInteraction playerInteraction = FindObjectOfType<PlayerInteraction>();
+        playerInteraction?.SetDialogueActive(false);
     }
 }
